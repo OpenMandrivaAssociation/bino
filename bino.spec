@@ -1,5 +1,5 @@
 Name:               bino
-Version:            1.3.0
+Version:            1.3.1
 Release:            1
 Summary:            Video Player with 3D and Multi-Display Video Support
 Source0:            http://download.savannah.gnu.org/releases/bino/%{name}-%{version}.tar.xz
