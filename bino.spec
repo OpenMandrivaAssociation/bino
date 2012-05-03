@@ -1,17 +1,18 @@
 Name:               bino
-Version:            1.3.2
+Version:            1.3.3
 Release:            1
 Summary:            Video Player with 3D and Multi-Display Video Support
 Source0:            http://download.savannah.gnu.org/releases/bino/%{name}-%{version}.tar.xz
 URL:                http://bino3d.org
 Group:              Video
 License:            GPLv3+
-BuildRequires:      libqt4-devel
+BuildRequires:      qt4-devel
 BuildRequires:      glew-devel >= 1.5.0
 BuildRequires:      ffmpeg-devel
 BuildRequires:      libass-devel
 BuildRequires:      openal-devel
 BuildRequires:      lirc-devel
+BuildRequires:      texinfo
 
 %description
 Bino is a video player with the following main features: 
@@ -37,11 +38,13 @@ installations and other multi-projector setups.
 
 %find_lang %{name}
 
+%if %{mdvver} < 201200
 %post
 %_install_info %{name}.info
 
 %preun
 %_remove_install_info %{name}.info
+%endif
 
 %files -f %{name}.lang
 %doc AUTHORS ChangeLog COPYING README
