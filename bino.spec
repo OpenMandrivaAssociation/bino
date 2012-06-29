@@ -1,5 +1,5 @@
 Name:               bino
-Version:            1.3.4
+Version:            1.4.0
 Release:            1
 Summary:            Video Player with 3D and Multi-Display Video Support
 Source0:            http://download.savannah.gnu.org/releases/bino/%{name}-%{version}.tar.xz
@@ -26,6 +26,7 @@ installations and other multi-projector setups.
 %setup -q
 
 %build
+export PATH=$PATH:%{qt4bin}
 %configure \
     --disable-silent-rules
 
