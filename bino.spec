@@ -1,3 +1,5 @@
+%define _disable_rebuild_configure 1
+
 Name:               bino
 Version:            1.6.3
 Release:            1
