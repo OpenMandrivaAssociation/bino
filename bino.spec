@@ -1,12 +1,13 @@
 Name:               bino
-Version:            1.6.1
+Version:            1.6.3
 Release:            1
 Summary:            Video Player with 3D and Multi-Display Video Support
 Source0:            http://download.savannah.gnu.org/releases/bino/%{name}-%{version}.tar.xz
+Patch0:             ffmpeg_2.9.patch
 URL:                http://bino3d.org
 Group:              Video
 License:            GPLv3+
-BuildRequires:      qt4-devel
+BuildRequires:      qt5-devel
 BuildRequires:      glew-devel >= 1.5.0
 BuildRequires:      ffmpeg-devel
 BuildRequires:      libass-devel
@@ -24,6 +25,7 @@ installations and other multi-projector setups.
 
 %prep
 %setup -q
+%apply_patches
 
 %build
 export PATH=$PATH:%{qt4bin}
