@@ -1,11 +1,10 @@
 %define _disable_rebuild_configure 1
 
 Name:               bino
-Version:            1.6.6
+Version:            1.6.7
 Release:            1
 Summary:            Video Player with 3D and Multi-Display Video Support
-Source0:            http://download.savannah.gnu.org/releases/bino/%{name}-%{version}.tar.xz
-Patch0:             bino-1.6.6-ffmpeg-4.0.patch
+Source0:            https://bino3d.org/releases/%{name}-%{version}.tar.xz
 URL:                http://bino3d.org
 Group:              Video
 License:            GPLv3+
@@ -26,10 +25,12 @@ formats.
 installations and other multi-projector setups.
 
 %prep
-%autosetup -p1
+%setup -q
+%apply_patches
 
 %build
-export PATH=$PATH:%{qt4bin}
+
+export CXXFLAGS="%{optflags} -std=c++11"
 %configure \
     --disable-silent-rules
 
