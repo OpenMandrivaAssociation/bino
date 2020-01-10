@@ -26,7 +26,7 @@ installations and other multi-projector setups.
 
 %prep
 %setup -q
-%apply_patches
+%autopatch -p1
 
 %build
 
