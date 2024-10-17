@@ -5,7 +5,7 @@ Version:            1.6.7
 Release:            1
 Summary:            Video Player with 3D and Multi-Display Video Support
 Source0:            https://bino3d.org/releases/%{name}-%{version}.tar.xz
-URL:                http://bino3d.org
+URL:                https://bino3d.org
 Group:              Video
 License:            GPLv3+
 BuildRequires:      qt5-devel
