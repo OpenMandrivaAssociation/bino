@@ -8,6 +8,11 @@ Source0:            https://bino3d.org/releases/%{name}-%{version}.tar.xz
 URL:                https://bino3d.org
 Group:              Video
 License:            GPLv3+
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:      qt5-devel
 BuildRequires:      glew-devel >= 1.5.0
 BuildRequires:      ffmpeg-devel
