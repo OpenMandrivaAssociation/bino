@@ -2,7 +2,7 @@
 
 Name:               bino
 Version:            1.6.7
-Release:            1
+Release:            2
 Summary:            Video Player with 3D and Multi-Display Video Support
 Source0:            https://bino3d.org/releases/%{name}-%{version}.tar.xz
 URL:                https://bino3d.org
