@@ -11,7 +11,7 @@ BuildSystem:	cmake
 BuildRequires:	cmake(Qt6OpenGLWidgets)
 BuildRequires:	cmake(Qt6Multimedia)
 BuildRequires:	cmake(Qt6LinguistTools)
-BuildRequires:	pandoc
+# pandoc is not in cooker; upstream already skips the manual if it is missing
 
 %description
 Bino is a video player with a focus on 3D and Virtual Reality:
@@ -23,9 +23,6 @@ Bino is a video player with a focus on 3D and Virtual Reality:
 %files
 %doc LICENSE.md NEWS.md README.md
 %{_bindir}/bino
-%{_mandir}/man1/bino.1*
 %{_datadir}/applications/org.bino3d.bino.desktop
 %{_datadir}/metainfo/org.bino3d.bino.metainfo.xml
 %{_iconsdir}/hicolor/*/apps/org.bino3d.bino.*
-%{_docdir}/bino/bino-manual.html
-%{_docdir}/bino/bino-manual.css
