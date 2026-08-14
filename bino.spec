@@ -1,66 +1,31 @@
-%define _disable_rebuild_configure 1
-
-Name:               bino
-Version:            1.6.7
-Release:            2
-Summary:            Video Player with 3D and Multi-Display Video Support
-Source0:            https://bino3d.org/releases/%{name}-%{version}.tar.xz
-URL:                https://bino3d.org
-Group:              Video
-License:            GPLv3+
-BuildRequires:	autoconf
-BuildRequires:	automake
-BuildRequires:	libtool-base
-BuildRequires:	slibtool
-BuildRequires:	make
-BuildRequires:      qt5-devel
-BuildRequires:      glew-devel >= 1.5.0
-BuildRequires:      ffmpeg-devel
-BuildRequires:      libass-devel
-BuildRequires:      openal-devel
-BuildRequires:      lirc-devel
-BuildRequires:      texinfo
+Name:		bino
+Version:	2.8
+Release:	1
+Summary:	Video player with a focus on 3D and Virtual Reality
+Source0:	https://bino3d.org/releases/%{name}-%{version}.tar.gz
+URL:		https://bino3d.org
+Group:		Video
+License:	GPLv3+
+# 2.x is a Qt6 rewrite using Qt Multimedia; it no longer links FFmpeg directly
+BuildSystem:	cmake
+BuildRequires:	cmake(Qt6OpenGLWidgets)
+BuildRequires:	cmake(Qt6Multimedia)
+BuildRequires:	cmake(Qt6LinguistTools)
+BuildRequires:	pandoc
 
 %description
-Bino is a video player with the following main features: 
+Bino is a video player with a focus on 3D and Virtual Reality:
 
-- Support for stereoscopic 3D video, with a wide variety of input and output
-formats.
-- Support for multi-display video, e.g. for powerwalls, Virtual Reality
-installations and other multi-projector setups.
+- Support for stereoscopic 3D images and videos in various formats
+- Support for 180° and 360° surround images and videos
+- Support for 3D displays and Virtual Reality environments
 
-%prep
-%setup -q
-%autopatch -p1
-
-%build
-
-export CXXFLAGS="%{optflags} -std=c++11"
-%configure \
-    --disable-silent-rules
-
-%make
-
-%install
-%makeinstall_std
-
-%__rm -rf "%{buildroot}%{_datadir}/doc"
-
-%find_lang %{name}
-
-%if %{mdvver} < 201200
-%post
-%_install_info %{name}.info
-
-%preun
-%_remove_install_info %{name}.info
-%endif
-
-%files -f %{name}.lang
-%doc AUTHORS ChangeLog COPYING README
-%doc doc/*.html doc/*.jpg doc/*.png
+%files
+%doc LICENSE.md NEWS.md README.md
 %{_bindir}/bino
-%doc %{_mandir}/man1/bino.1*
-%doc %{_infodir}/bino.info*
-%{_datadir}/applications/%{name}.desktop
-%{_iconsdir}/hicolor/*/apps/bino.*
+%{_mandir}/man1/bino.1*
+%{_datadir}/applications/org.bino3d.bino.desktop
+%{_datadir}/metainfo/org.bino3d.bino.metainfo.xml
+%{_iconsdir}/hicolor/*/apps/org.bino3d.bino.*
+%{_docdir}/bino/bino-manual.html
+%{_docdir}/bino/bino-manual.css
